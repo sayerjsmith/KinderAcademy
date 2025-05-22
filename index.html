@@ -2,31 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Kinder Academy - Login</title>
+  <title>Sign In - Kinder Academy</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Kinder Academy 🏫 </h1>
-  </header>
-  <main>
-    <section id="loginbox">
-      <h2>Sign In</h2>
-      <label>
-        <p>Username</p>
-        <input type="text" id="login-username" />
-      </label>
-      <label>
-        <p>Password</p>
-        <input type="password" id="login-password" />
-      </label>
-      <input type="submit" value="Sign In" onclick="login()" />
-      <div class="new">
-        <p>New here? <a href="signup.html">Create an account.</a></p>
-      </div>
-      <p id="login-error" style="color:red;"></p>
-    </section>
-  </main>
+  <header><h1>Sign in to Kinder Academy!</h1></header>
+  <div id="loginbox">
+    <label>
+      <p>Username</p>
+      <input id="login-username" type="text" required />
+    </label>
+    <label>
+      <p>Password</p>
+      <input id="login-password" type="password" required />
+    </label>
+    <button onclick="login()">Sign In</button>
+    <p>New to Kinder Academy? <a href="signup.html">Create an account.</a></p>
+    <p id="login-error" style="color:red;"></p>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

@@ -25,7 +25,7 @@ function login() {
 
   if (savedPassword === password) {
     alert("Welcome to Kinder Academy, " + username + "!");
-    // You can redirect to dashboard.html or something here
+    window.location.href = "dashboard.html";
   } else {
     document.getElementById("login-error").textContent = "Invalid username or password.";
   }

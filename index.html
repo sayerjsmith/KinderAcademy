@@ -1,45 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Kinder Academy</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>Kinder Academy - Login</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>Welcome to Kinder Academy! 🌟</h1>
+    <h1>Kinder Academy </h1>
   </header>
-
   <main>
     <section id="loginbox">
-      <h2>Sign in</h2>
+      <h2>Sign In</h2>
       <label>
-        <p>Username or Email</p>
-        <input type="text" placeholder="Enter your name">
+        <p>Username</p>
+        <input type="text" id="login-username" />
       </label>
-
       <label>
-        <p>Password <a href="#">(Forgot?)</a></p>
-        <input type="password" placeholder="●●●●●●">
+        <p>Password</p>
+        <input type="password" id="login-password" />
       </label>
-
-      <input type="submit" value="Sign In">
-
+      <input type="submit" value="Sign In" onclick="login()" />
       <div class="new">
-        <p>New to Kinder Academy? <a href="#">Create an account.</a></p>
+        <p>New here? <a href="signup.html">Create an account.</a></p>
       </div>
+      <p id="login-error" style="color:red;"></p>
     </section>
   </main>
-
-  <footer>
-    <ul>
-      <li><a href="#">Terms</a></li>
-      <li><a href="#">Privacy</a></li>
-      <li><a href="#">Security</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </footer>
+  <script src="script.js"></script>
 </body>
 </html>

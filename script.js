@@ -1,49 +1,31 @@
-function signup() {
-  const username = document.getElementById("signup-username").value;
-  const password = document.getElementById("signup-password").value;
+function createAccount() {
+  const username = document.getElementById("signup-username").value.trim();
+  const password = document.getElementById("signup-password").value.trim();
 
-  if (!username || !password) {
-    document.getElementById("signup-error").textContent = "Please fill in both fields.";
-    return;
+  if (username && password) {
+    if (localStorage.getItem(username)) {
+      alert("Username already exists! Try logging in.");
+      return;
+    }
+    localStorage.setItem(username, password);
+    localStorage.setItem("lastLoggedInUser", username);
+    alert("Account created successfully! 🎉");
+    window.location.href = "index.html";
+  } else {
+    alert("Please fill out both fields.");
   }
-
-  if (localStorage.getItem(username)) {
-    document.getElementById("signup-error").textContent = "Username already exists!";
-    return;
-  }
-
-  localStorage.setItem(username, password);
-  alert("Account created! You can now sign in.");
-  window.location.href = "index.html";
 }
 
 function login() {
-  const username = document.getElementById("login-username").value;
-  const password = document.getElementById("login-password").value;
+  const username = document.getElementById("login-username").value.trim();
+  const password = document.getElementById("login-password").value.trim();
 
   const savedPassword = localStorage.getItem(username);
 
   if (savedPassword === password) {
-    alert("Welcome to Kinder Academy, " + username + "!");
+    localStorage.setItem("lastLoggedInUser", username);
     window.location.href = "dashboard.html";
   } else {
     document.getElementById("login-error").textContent = "Invalid username or password.";
-  }
-}
-function createAccount() {
-  const username = document.getElementById("signup-username").value;
-  const password = document.getElementById("signup-password").value;
-
-  if (username && password) {
-    // Save username and password to localStorage
-    localStorage.setItem(username, password);
-
-    // Save who's logged in
-    localStorage.setItem("lastLoggedInUser", username);
-
-    alert("Account created! You can now sign in.");
-    window.location.href = "index.html"; // or whatever your login page is
-  } else {
-    alert("Please enter a username and password.");
   }
 }

@@ -1,58 +1,49 @@
 body {
-  font-family: "Comic Sans MS", "Chalkboard SE", cursive;
-  background-color: #fff8dc;
-  color: #2d3436;
-  margin: 0;
-  padding: 0;
-}
-
-header {
-  background-color: #f9ca24;
-  padding: 1rem;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: #f0e7db;
   text-align: center;
-  border-bottom: 4px solid #f6e58d;
+  padding: 30px;
 }
 
-h1, h2 {
-  margin: 0.5rem 0;
+header h1 {
+  color: #4a90e2;
+  margin-bottom: 20px;
 }
 
-/* Dashboard Styles */
-.dashboard {
-  text-align: center;
-  padding: 2rem;
+#signup-box, #loginbox, #dashboard-buttons {
+  background: white;
+  display: inline-block;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  min-width: 300px;
 }
 
-.dashboard h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-.subject-grid {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.subject-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #ffeaa7;
-  color: #2d3436;
-  width: 150px;
-  height: 150px;
-  border-radius: 20px;
-  font-size: 1.5rem;
-  text-decoration: none;
+label p {
+  margin: 10px 0 5px;
   font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.subject-card:hover {
-  background: #fdcb6e;
-  transform: scale(1.05);
+input[type="text"],
+input[type="password"] {
+  padding: 8px;
+  width: 90%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 12px;
+  background-color: #4a90e2;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #357abd;
 }

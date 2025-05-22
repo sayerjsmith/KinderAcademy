@@ -1,33 +1,223 @@
-<html>
-    <head>
-        <title>Kinder Academy</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body>
-        <header>
-            <h1>Sign in to Kinder Academy!</h1>
-        </header>
-        <div id="loginbox">
-            <label id="login">
-                <p>Username or email address</p>
-                <input type="text">
-            </label>
-            <label id="password">
-                <p>Password <a href="#">Forgot Password?</a></p>
-                <input type="password">
-            </label>
-            <input type="submit" value="Sign in">
-            <div id="new">
-                <p>New to Kinder Academy? <a href="#">Create an account.</a></p>
-            </div>
-            <div id="list">
-                <ul>
-                    <li class="m3"><a href="#">Terms</a></li>
-                    <li class="m3"><a href="#">Privacy</a></li>
-                    <li class="m3"><a href="#">Security</a></li>
-                    <li class="m3"><a href="#" id="contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>   
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Robux ⇄ Currency Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #fdf3d5;
+      font-family: 'Comic Neue', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      color: #222;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #ff6b00;
+    }
+
+    .converter {
+      background: #fffbe0;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      max-width: 420px;
+      width: 100%;
+    }
+
+    .input-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1.2rem;
+      border-radius: 12px;
+      border: 2px solid #ffd966;
+      background-color: #fffdf5;
+      text-align: center;
+    }
+
+    .result {
+      font-size: 1.1rem;
+      margin-top: 0.75rem;
+      color: #555;
+    }
+
+    .rate-toggle {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      justify-content: center;
+    }
+
+    .rate-button {
+      background: #ffe275;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      transform: scale(1);
+    }
+
+    .rate-button:hover {
+      background: #ffcd4f;
+    }
+
+    .rate-button.active {
+      background: #ffb84c;
+      color: #fff;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>💸 Robux ⇄ Currency Calculator</h1>
+
+  <div class="converter">
+    <div class="rate-toggle">
+      <button class="rate-button active" onclick="setRate('buy')" id="buyRate">Buy Rate</button>
+      <button class="rate-button" onclick="setRate('devex')" id="devexRate">DevEx Rate</button>
+    </div>
+
+    <div class="input-group">
+      <label for="currency">Currency</label>
+      <select id="currency" onchange="updateCurrency()">
+        <option value="USD" selected>🇺🇸 USD ($)</option>
+        <option value="EUR">🇪🇺 EUR (€)</option>
+        <option value="GBP">🇬🇧 GBP (£)</option>
+        <option value="INR">🇮🇳 INR (₹)</option>
+        <option value="JPY">🇯🇵 JPY (¥)</option>
+        <option value="KRW">🇰🇷 KRW (₩)</option>
+        <option value="PHP">🇵🇭 PHP (₱)</option>
+        <option value="VND">🇻🇳 VND (₫)</option>
+        <option value="BRL">🇧🇷 BRL (R$)</option>
+        <option value="NGN">🇳🇬 NGN (₦)</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label for="usd">Amount (<span id="currencySymbol">$</span>)</label>
+      <input type="text" id="usd" placeholder="Enter amount (e.g. 1.5k)" oninput="convertFromUSD()" />
+    </div>
+
+    <div class="input-group">
+      <label for="robux">Robux (R$)</label>
+      <input type="text" id="robux" placeholder="Enter Robux (e.g. 2m)" oninput="convertFromRobux()" />
+    </div>
+
+    <div class="result" id="rateInfo">
+      Using Buy Rate: $1 = 80 Robux
+    </div>
+  </div>
+
+  <script>
+    let rateType = 'buy';
+    let RATE = 80;
+    let currencyCode = 'USD';
+    let currencySymbol = '$';
+
+    const currencyRates = {
+      USD: { rate: 1, symbol: '$' },
+      EUR: { rate: 1.09, symbol: '€' },
+      GBP: { rate: 1.27, symbol: '£' },
+      INR: { rate: 0.012, symbol: '₹' },
+      JPY: { rate: 0.0064, symbol: '¥' },
+      KRW: { rate: 0.00074, symbol: '₩' },
+      PHP: { rate: 0.0176, symbol: '₱' },
+      VND: { rate: 0.000039, symbol: '₫' },
+      BRL: { rate: 0.20, symbol: 'R$' },
+      NGN: { rate: 0.00067, symbol: '₦' }
+    };
+
+    function setRate(type) {
+      rateType = type;
+      RATE = type === 'buy' ? 80 : 350;
+      updateCurrency();
+      document.getElementById("buyRate").classList.toggle("active", type === 'buy');
+      document.getElementById("devexRate").classList.toggle("active", type === 'devex');
+    }
+
+    function updateCurrency() {
+      currencyCode = document.getElementById('currency').value;
+      currencySymbol = currencyRates[currencyCode].symbol;
+      document.getElementById("currencySymbol").textContent = currencySymbol;
+      updateRateText();
+      convertFromUSD();
+    }
+
+    function updateRateText() {
+      const localRate = (RATE / currencyRates[currencyCode].rate).toFixed(2);
+      const rateName = rateType === 'buy' ? 'Buy' : 'DevEx';
+      document.getElementById("rateInfo").textContent =
+        `Using ${rateName} Rate: ${currencySymbol}1 = ${localRate} Robux`;
+    }
+
+    function parseShorthand(value) {
+      value = value.toLowerCase().replace(/,/g, '');
+      const suffixes = {
+        k: 1e3,
+        m: 1e6,
+        b: 1e9,
+        t: 1e12
+      };
+      const match = value.match(/^([\d\.]+)([kmbt]?)$/);
+      if (!match) return NaN;
+      const num = parseFloat(match[1]);
+      const multiplier = suffixes[match[2]] || 1;
+      return num * multiplier;
+    }
+
+    function formatShorthand(value) {
+      const absVal = Math.abs(value);
+      if (absVal >= 1e12) return (value / 1e12).toFixed(2) + 'T';
+      if (absVal >= 1e9) return (value / 1e9).toFixed(2) + 'B';
+      if (absVal >= 1e6) return (value / 1e6).toFixed(2) + 'M';
+      if (absVal >= 1e3) return (value / 1e3).toFixed(2) + 'K';
+      return value.toFixed(2);
+    }
+
+    function convertFromUSD() {
+      const input = document.getElementById('usd').value;
+      const localAmount = parseShorthand(input);
+      if (!isNaN(localAmount)) {
+        const usd = localAmount * currencyRates[currencyCode].rate;
+        const robux = usd * RATE;
+        document.getElementById('robux').value = formatShorthand(robux);
+      } else {
+        document.getElementById('robux').value = '';
+      }
+    }
+
+    function convertFromRobux() {
+      const input = document.getElementById('robux').value;
+      const robux = parseShorthand(input);
+      if (!isNaN(robux)) {
+        const usd = robux / RATE;
+        const localAmount = usd / currencyRates[currencyCode].rate;
+        document.getElementById('usd').value = formatShorthand(localAmount);
+      } else {
+        document.getElementById('usd').value = '';
+      }
+    }
+
+    // Start everything
+    updateCurrency();
+  </script>
+</body>
 </html>

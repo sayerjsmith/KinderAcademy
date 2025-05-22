@@ -30,3 +30,20 @@ function login() {
     document.getElementById("login-error").textContent = "Invalid username or password.";
   }
 }
+function createAccount() {
+  const username = document.getElementById("signup-username").value;
+  const password = document.getElementById("signup-password").value;
+
+  if (username && password) {
+    // Save username and password to localStorage
+    localStorage.setItem(username, password);
+
+    // Save who's logged in
+    localStorage.setItem("lastLoggedInUser", username);
+
+    alert("Account created! You can now sign in.");
+    window.location.href = "index.html"; // or whatever your login page is
+  } else {
+    alert("Please enter a username and password.");
+  }
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kinder Academy - Sign Up</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Create Your Kinder Account 🎒</h1>
+  </header>
+  <main>
+    <section id="loginbox">
+      <h2>Sign Up</h2>
+      <label>
+        <p>Choose a Username</p>
+        <input type="text" id="signup-username" />
+      </label>
+      <label>
+        <p>Create a Password</p>
+        <input type="password" id="signup-password" />
+      </label>
+      <input type="submit" value="Create Account" onclick="signup()" />
+      <div class="new">
+        <p><a href="index.html">Already have an account?</a></p>
+      </div>
+      <p id="signup-error" style="color:red;"></p>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

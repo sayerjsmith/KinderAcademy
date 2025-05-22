@@ -105,3 +105,31 @@ footer a {
   color: #666;
   font-size: 0.9rem;
 }
+.dashboard {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.dash-btn {
+  background-color: #ffd983;
+  color: #4a2f13;
+  padding: 1rem;
+  border-radius: 16px;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: transform 0.2s;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.dash-btn:hover {
+  background-color: #ffc857;
+  transform: scale(1.05);
+}

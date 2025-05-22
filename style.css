@@ -1,52 +1,111 @@
+/* Base styles */
 body {
   font-family: 'Comic Sans MS', cursive, sans-serif;
   background: #f0e7db;
-  text-align: center;
-  padding: 30px;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 header h1 {
-  color: #4a90e2;
-  margin-bottom: 20px;
+  margin-top: 0;
+  color: #333;
 }
 
-#signup-box, #loginbox {
+/* Centered box styles */
+#signup-box,
+#loginbox {
   background: white;
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   min-width: 300px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  text-align: left;
 }
 
 label p {
-  margin: 10px 0 5px;
+  margin: 0;
   font-weight: bold;
+  color: #444;
 }
 
 input[type="text"],
 input[type="password"] {
+  width: 100%;
   padding: 8px;
-  width: 90%;
-  border-radius: 8px;
+  margin-top: 4px;
+  margin-bottom: 12px;
   border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
 }
 
-button {
-  margin-top: 20px;
-  padding: 10px 25px;
-  border: none;
-  border-radius: 12px;
-  background-color: #4a90e2;
+input[type="submit"] {
+  background-color: #ffb347;
   color: white;
-  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.2s ease-in-out;
 }
 
-button:hover {
-  background-color: #357abd;
+input[type="submit"]:hover {
+  background-color: #ff9900;
+  transform: scale(1.05);
+}
+
+/* Links and bottom nav */
+#new, #list {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+#list ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#list li a {
+  text-decoration: none;
+  color: #888;
+}
+
+#list li a:hover {
+  color: #ff9900;
+}
+
+/* Dashboard buttons */
+#dashboard-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.dashboard-button {
+  background-color: #add8e6;
+  border: none;
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 200px;
+  text-align: center;
+}
+
+.dashboard-button:hover {
+  background-color: #87ceeb;
+  transform: translateY(-2px);
 }

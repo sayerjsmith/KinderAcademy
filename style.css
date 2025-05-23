@@ -1,33 +1,33 @@
-/* Import a playful font from Google Fonts */
+/* Import a playful font */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
 body {
   font-family: 'Fredoka One', cursive, sans-serif;
-  background: linear-gradient(135deg, #4EC5A1, ##65e6bf);
+  background: linear-gradient(135deg, #A7E9AF, #f6fffb);
   margin: 0;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: #4a4a4a;
+  color: #2D6B5F;
 }
 
 /* Header style */
 header h1 {
   font-size: 3rem;
-  color: #ff6f91;
+  color: #2A8C82;
   margin-bottom: 20px;
-  text-shadow: 1px 1px 2px #fcd1d7;
+  text-shadow: 1px 1px 2px #d3f7ed;
 }
 
 /* Center the boxes */
 #signup-box,
 #loginbox {
-  background: #fff0f5;
+  background: #ecfef7;
   padding: 30px 40px;
   border-radius: 25px;
-  box-shadow: 0 5px 15px rgba(255, 111, 145, 0.4);
+  box-shadow: 0 5px 15px rgba(46, 172, 150, 0.2);
   min-width: 320px;
   max-width: 90vw;
   text-align: left;
@@ -36,7 +36,7 @@ header h1 {
 
 #signup-box:hover,
 #loginbox:hover {
-  box-shadow: 0 8px 20px rgba(255, 111, 145, 0.6);
+  box-shadow: 0 8px 20px rgba(46, 172, 150, 0.4);
 }
 
 /* Labels and inputs */
@@ -44,7 +44,7 @@ label p {
   font-weight: 700;
   font-size: 1.1rem;
   margin-bottom: 8px;
-  color: #ff4f73;
+  color: #2A8C82;
 }
 
 input[type="text"],
@@ -52,7 +52,7 @@ input[type="password"] {
   width: 100%;
   padding: 14px;
   margin-bottom: 18px;
-  border: 3px solid #ffabc9;
+  border: 3px solid #A7E9AF;
   border-radius: 20px;
   font-size: 1rem;
   outline: none;
@@ -61,12 +61,12 @@ input[type="password"] {
 
 input[type="text"]:focus,
 input[type="password"]:focus {
-  border-color: #ff6f91;
+  border-color: #4EC5A1;
 }
 
 /* Submit button */
 input[type="submit"] {
-  background-color: #ff6f91;
+  background-color: #4EC5A1;
   color: white;
   padding: 16px 0;
   width: 100%;
@@ -75,12 +75,12 @@ input[type="submit"] {
   font-size: 1.3rem;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 6px 12px rgba(255, 111, 145, 0.5);
+  box-shadow: 0 6px 12px rgba(46, 172, 150, 0.5);
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 input[type="submit"]:hover {
-  background-color: #ff3b63;
+  background-color: #2A8C82;
   transform: scale(1.05);
 }
 
@@ -90,12 +90,12 @@ input[type="submit"]:hover {
   font-size: 0.9rem;
   text-align: center;
   margin-top: 20px;
-  color: #d94f7a;
+  color: #2D6B5F;
 }
 
 #new a,
 #list a {
-  color: #ff6f91;
+  color: #4EC5A1;
   text-decoration: none;
   font-weight: 600;
 }
@@ -128,14 +128,14 @@ input[type="submit"]:hover {
 }
 
 .dashboard-button {
-  background: linear-gradient(45deg, #ff91a4, #ff477e);
+  background: linear-gradient(45deg, #4EC5A1, #2A8C82);
   border: none;
   padding: 18px;
   font-size: 1.3rem;
   border-radius: 30px;
   color: white;
   cursor: pointer;
-  box-shadow: 0 6px 12px rgba(255, 71, 126, 0.6);
+  box-shadow: 0 6px 12px rgba(46, 172, 150, 0.5);
   transition: all 0.3s ease;
   width: 220px;
   text-align: center;
@@ -144,7 +144,7 @@ input[type="submit"]:hover {
 }
 
 .dashboard-button:hover {
-  background: linear-gradient(45deg, #ff477e, #ff91a4);
+  background: linear-gradient(45deg, #2A8C82, #4EC5A1);
   transform: translateY(-3px);
-  box-shadow: 0 8px 16px rgba(255, 71, 126, 0.8);
+  box-shadow: 0 8px 16px rgba(46, 172, 150, 0.7);
 }

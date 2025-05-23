@@ -1,33 +1,33 @@
-/* Playful & Fun Base */
-@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+/* Import a playful font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
 body {
-  font-family: 'Comic Neue', cursive, sans-serif;
-  background: linear-gradient(135deg, #ffe4e1, #fffbf0);
+  font-family: 'Fredoka One', cursive, sans-serif;
+  background: linear-gradient(135deg, #ffd3e0, #fff6f9);
   margin: 0;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: #333;
+  color: #4a4a4a;
 }
 
-/* Header */
+/* Header style */
 header h1 {
   font-size: 3rem;
   color: #ff6f91;
-  text-shadow: 1px 1px 2px #fce4ec;
   margin-bottom: 20px;
+  text-shadow: 1px 1px 2px #fcd1d7;
 }
 
-/* Centered Boxes */
+/* Center the boxes */
 #signup-box,
 #loginbox {
-  background: #fff8f0;
+  background: #fff0f5;
   padding: 30px 40px;
-  border-radius: 30px;
-  box-shadow: 0 6px 12px rgba(255, 111, 145, 0.3);
+  border-radius: 25px;
+  box-shadow: 0 5px 15px rgba(255, 111, 145, 0.4);
   min-width: 320px;
   max-width: 90vw;
   text-align: left;
@@ -36,24 +36,24 @@ header h1 {
 
 #signup-box:hover,
 #loginbox:hover {
-  box-shadow: 0 8px 16px rgba(255, 111, 145, 0.5);
+  box-shadow: 0 8px 20px rgba(255, 111, 145, 0.6);
 }
 
-/* Labels & Inputs */
+/* Labels and inputs */
 label p {
   font-weight: 700;
   font-size: 1.1rem;
-  margin-bottom: 6px;
-  color: #ff477e;
+  margin-bottom: 8px;
+  color: #ff4f73;
 }
 
 input[type="text"],
 input[type="password"] {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   margin-bottom: 18px;
   border: 3px solid #ffabc9;
-  border-radius: 25px;
+  border-radius: 20px;
   font-size: 1rem;
   outline: none;
   transition: border-color 0.25s ease;
@@ -64,18 +64,18 @@ input[type="password"]:focus {
   border-color: #ff6f91;
 }
 
-/* Buttons */
+/* Submit button */
 input[type="submit"] {
   background-color: #ff6f91;
   color: white;
-  padding: 15px 0;
+  padding: 16px 0;
   width: 100%;
   border: none;
   border-radius: 30px;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 6px 10px rgba(255, 111, 145, 0.5);
+  box-shadow: 0 6px 12px rgba(255, 111, 145, 0.5);
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -105,7 +105,7 @@ input[type="submit"]:hover {
   text-decoration: underline;
 }
 
-/* List of Terms, Privacy, etc. */
+/* Bottom nav list */
 #list ul {
   list-style: none;
   padding: 0;
@@ -119,7 +119,7 @@ input[type="submit"]:hover {
   font-size: 0.9rem;
 }
 
-/* Dashboard Buttons */
+/* Dashboard buttons */
 #dashboard-buttons {
   display: flex;
   flex-direction: column;
